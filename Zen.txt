@@ -32,7 +32,7 @@ Zen of Python!
 30.berehx
 31.Mlvsky
 32.forgenew
-33.
+33.BogdanLinnik
 34.
 35.
 36.
