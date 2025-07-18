@@ -15,7 +15,7 @@ Zen of Python!
 13.kittl-png
 14.chinnk
 15.delilah07
-16.BogdanLinnik
+16.Although never is often better than *right* now.
 17.GLADIATORsvg
 18.Yevhenii-lavr
 19.Namespaces are one honking great idea -- let's do more of those!
@@ -32,7 +32,7 @@ Zen of Python!
 30.berehx
 31.Mlvsky
 32.forgenew
-33.BogdanLinnik
+33.
 34.
 35.
 36.
