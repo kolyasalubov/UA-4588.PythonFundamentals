@@ -6,7 +6,7 @@ Zen of Python!
 4.nazariybu
 5.Sam-uch
 6.Glovik990
-7.Dark3042
+7.Readability counts.
 8.jssugs
 9.QAAutoOleks
 10.ShvetsDima
