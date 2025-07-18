@@ -25,7 +25,7 @@ Zen of Python!
 23.oleksandrtargaryen
 24.vladfreishmidt
 25.artemdubrov27
-26.ronevych
+26.Readability counts.
 27.Bambook23
 28.sudilaw
 29.FortNoks
