@@ -10,7 +10,7 @@ Zen of Python!
 8.jssugs
 9.QAAutoOleks
 10.ShvetsDima
-11.VitaliyKh
+11.Unless explicitly silenced.
 12.kovalenkomariia
 13.kittl-png
 14.chinnk
