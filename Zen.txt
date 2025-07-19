@@ -22,7 +22,7 @@ Zen of Python!
 20.bel-o-kan
 21.komiakov
 22.dykunecivan
-23.oleksandrtargaryen
+23.Complex is better than complicated.
 24.vladfreishmidt
 25.artemdubrov27
 26.Readability counts.
