@@ -7,7 +7,7 @@ Zen of Python!
 5.Sam-uch
 6.Glovik990
 7.Readability counts.
-8.jssugs
+8.Special cases aren't special enough to break the rules.
 9.QAAutoOleks
 10.ShvetsDima
 11.Unless explicitly silenced.
