@@ -20,7 +20,7 @@ Zen of Python!
 18.Yevhenii-lavr
 19.Namespaces are one honking great idea -- let's do more of those!
 20.bel-o-kan
-21.komiakov
+21.Explicit is better than implicit.
 22.dykunecivan
 23.Complex is better than complicated.
 24.vladfreishmidt
