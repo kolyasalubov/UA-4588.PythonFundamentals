@@ -5,7 +5,7 @@ Zen of Python!
 3.Simple is better than complex.
 4.Complex is better than complicated.
 5.Flat is better than nested.
-6.Glovik990
+6.Sparse is better than dense.
 7.Readability counts.
 8.jssugs
 8.Special cases aren't special enough to break the rules.
