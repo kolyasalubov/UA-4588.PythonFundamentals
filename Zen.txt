@@ -8,7 +8,7 @@ Zen of Python!
 6.Glovik990
 7.Readability counts.
 8.jssugs
-9.QAAutoOleks
+9.QAAutoOleks: "Although practicality beats purity."
 10.ShvetsDima
 11.Unless explicitly silenced.
 12.kovalenkomariia
