@@ -7,13 +7,9 @@ Zen of Python!
 5.Flat is better than nested.
 6.Glovik990
 7.Readability counts.
-<<<<<<< HEAD
 8.jssugs
-9.QAAutoOleks: "Although practicality beats purity."
-=======
 8.Special cases aren't special enough to break the rules.
-9.QAAutoOleks
->>>>>>> 32fdd342ca80e98c95dcc5f1743efbae6373f366
+9.QAAutoOleks: "Although practicality beats purity."
 10.ShvetsDima
 11.Unless explicitly silenced.
 12.kovalenkomariia
