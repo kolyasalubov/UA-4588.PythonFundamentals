@@ -4,11 +4,16 @@ Zen of Python!
 2.SerhiiSkakovskyi
 3.Simple is better than complex.
 4.Complex is better than complicated.
-5.Sam-uch
+5.Flat is better than nested.
 6.Glovik990
 7.Readability counts.
+<<<<<<< HEAD
 8.jssugs
 9.QAAutoOleks: "Although practicality beats purity."
+=======
+8.Special cases aren't special enough to break the rules.
+9.QAAutoOleks
+>>>>>>> 32fdd342ca80e98c95dcc5f1743efbae6373f366
 10.ShvetsDima
 11.Unless explicitly silenced.
 12.kovalenkomariia
@@ -17,7 +22,7 @@ Zen of Python!
 15.delilah07
 16.Although never is often better than *right* now.
 17.GLADIATORsvg
-18.Yevhenii-lavr
+18.If the implementation is easy to explain, it may be a good idea.
 19.Namespaces are one honking great idea -- let's do more of those!
 20.bel-o-kan
 21.Explicit is better than implicit.
@@ -29,13 +34,13 @@ Zen of Python!
 27.Bambook23
 28.sudilaw
 29.FortNoks
-30.berehx
+30.berehx - There should be one-- and preferably only one --obvious way to do it.
 31.Mlvsky
 32.forgenew
-33.
-34.
-35.
-36.
+33.ilumixxxx
+34.AndriiiMoroz
+35.Margarita23Krylova
+36. If the implementation is hard to explain, it's a bad idea.
 37.
 38.
 39.
