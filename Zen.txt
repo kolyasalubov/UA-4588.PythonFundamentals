@@ -4,11 +4,12 @@ Zen of Python!
 2.SerhiiSkakovskyi
 3.Simple is better than complex.
 4.Complex is better than complicated.
-5.Sam-uch
-6.Glovik990
+5.Flat is better than nested.
+6.Sparse is better than dense.
 7.Readability counts.
+8.jssugs
 8.Special cases aren't special enough to break the rules.
-9.QAAutoOleks
+9.QAAutoOleks: "Although practicality beats purity."
 10.ShvetsDima
 11.Unless explicitly silenced.
 12.kovalenkomariia
@@ -32,10 +33,17 @@ Zen of Python!
 30.berehx - There should be one-- and preferably only one --obvious way to do it.
 31.Mlvsky
 32.forgenew
+<<<<<<< HEAD
 33.
 34.
 35.
 36.
+=======
+33.ilumixxxx
+34.AndriiiMoroz
+35.Margarita23Krylova
+36. If the implementation is hard to explain, it's a bad idea.
+>>>>>>> e66adc5dd45ad5e6774cb7b7add69202bd2a7367
 37.
 38.
 39.
