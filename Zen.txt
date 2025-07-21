@@ -35,7 +35,7 @@ Zen of Python!
 33.ilumixxxx
 34.AndriiiMoroz
 35.Margarita23Krylova
-36.vitya199909
+36. If the implementation is hard to explain, it's a bad idea.
 37.
 38.
 39.
