@@ -26,7 +26,7 @@ Zen of Python!
 24.vladfreishmidt
 25.artemdubrov27
 26.Readability counts.
-27.Bambook23
+27.Special cases aren't special enough to break the rules.
 28.sudilaw
 29.FortNoks
 30.berehx - There should be one-- and preferably only one --obvious way to do it.
