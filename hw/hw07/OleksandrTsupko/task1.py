@@ -4,5 +4,7 @@ def comparing_two_numbers(number1, number2):
     """
     if number1 > number2:
         return number1
-    else:
+    elif number2 > number1:
         return number2
+    else:
+        print("Numbers are equal")
