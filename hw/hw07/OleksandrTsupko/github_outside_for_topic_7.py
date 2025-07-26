@@ -19,7 +19,7 @@ def greet(name):
 # Round to two decimal places. This should be easy to do in 0(1) timing.
 
 def distance(x1, y1, x2, y2):
-    
+
     distance_between_pairs = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
     return round(distance_between_pairs, 2)
@@ -36,6 +36,7 @@ def distance(x1, y1, x2, y2):
 # filter_words('THAT was EXTRAORDINARY!') #=> That was extraordinary!
 
 def filter_words(st):
+
     st_modified = st.split()
     final_string = " ".join(st_modified)
 
@@ -84,7 +85,6 @@ def reverse(st):
 
 def reverse_list(l):
 
-    'return a list with the reverse order of l'
     l.reverse()
 
     return l
