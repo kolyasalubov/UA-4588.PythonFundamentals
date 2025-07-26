@@ -6,6 +6,8 @@
 
 # print(arithmetic_mean(1,2,3,4,5))
 
+# ------------------------------------------------------------------------------------------
+
 # def aritmetic_mean(*num):
 #     '''
 #     This function that returns the arithmetic mean of any number of numbers
@@ -21,6 +23,8 @@
 # print(aritmetic_mean.__doc__)
 # print(aritmetic_mean(1,2,3,4,5))
 
+# ------------------------------------------------------------------------------------------
+
 # def largest_number(num1,num2):
 #     """
 #     This function that returns the largest number of two numbers
@@ -34,6 +38,8 @@
 
 # print(largest_number.__doc__)
 # print(largest_number(3,3))
+
+# ------------------------------------------------------------------------------------------
 
 
 # def factorial(in_data):
@@ -49,12 +55,15 @@
 
 # print(factorial(4))
 
+# ------------------------------------------------------------------------------------------
 
 # my_list = list(range(10))
 
 # new_list = list(map(lambda x: x * 2, my_list))
 
 # print(new_list)
+
+# ------------------------------------------------------------------------------------------
 
 # Task 1.
 # Write a function that returns the largest number of two numbers
@@ -73,6 +82,8 @@
 
 # print(largest_number.__doc__)
 # print(largest_number(3,3))
+
+# ------------------------------------------------------------------------------------------
 
 
 # Task2.
@@ -106,6 +117,7 @@
 # else:
 #     print("Chose the correct option")
 
+# ------------------------------------------------------------------------------------------
 
 # Task3.
 # Write a function that calculates the number of characters 
