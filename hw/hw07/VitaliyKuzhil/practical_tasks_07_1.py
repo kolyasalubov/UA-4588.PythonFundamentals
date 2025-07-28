@@ -88,3 +88,29 @@ match user_choice:
 
     case _:
         print('You must choice one of tre three choices. Try again!')
+
+
+# Task 3
+user_string = input('Enter your string: ').lower()
+
+def count_chars(chars: str) -> dict:
+    '''
+    Function calculate the number of characters included in given string
+
+    Receive: 
+    chars: string
+
+    Return: 
+    result: dict
+    '''
+    result = {}
+
+    for char in chars:
+        if char in result:
+            result[char] += 1
+        else:
+            result[char] = 1
+
+    return result
+
+print(count_chars(user_string))
