@@ -1,0 +1,133 @@
+
+def greet(name):
+     if name == "Johnny":
+         return "Hello, my love!"
+         return "Hello, {name}!".format(name=name)
+
+
+
+
+
+
+def distance(x1, y1, x2, y2):
+    """
+    Вычисляет евклидово расстояние между двумя точками (x1, y1) и (x2, y2).
+
+    Аргументы:
+        x1 (float или int): Координата X первой точки.
+        y1 (float или int): Координата Y первой точки.
+        x2 (float или int): Координата X второй точки.
+        y2 (float или int): Координата Y второй точки.
+    Возвращает:
+        float: Расстояние между двумя точками, округленное до двух знаков после запятой.
+     """
+     # Вычисляем разности координат по осям X и Y
+     dx = x2 - x1
+     dy = y2 - y1
+     # Вычисляем сумму квадратов разностей
+     sum_of_squares = dx**2 + dy**2
+     # Вычисляем квадратный корень с помощью оператора ** 0.5
+     distance_val = sum_of_squares ** 0.5
+     # Округляем результат до двух знаков после запятой
+     return round(distance_val, 2)
+
+
+
+def filter_words(st):
+    if not st:
+        return ""
+    cleaned_chars = []
+    space_needed = False # Флаг, указывающий, нужен ли пробел перед следующим словом
+    for char in st:
+        if 'a' <= char <= 'z' or 'A' <= char <= 'Z': # Это буква
+            cleaned_chars.append(char.lower()) # Переводим в нижний регистр
+            space_needed = True # После буквы может понадобиться пробел
+        elif char.isspace(): # Это пробельный символ
+            if space_needed:
+                cleaned_chars.append(' ') # Добавляем один пробел, если он нужен
+                space_needed = False # Сбрасываем флаг, чтобы не добавлять несколько пробелов
+        # НОВОЕ: Если это не буква и не пробел (т.е. знак препинания),
+        # добавляем его как есть, и он не влияет на space_needed
+        else:
+            cleaned_chars.append(char)
+            space_needed = False # После знака препинания пробел не нужен, если только дальше не будет буквы
+    # Удаляем начальные/конечные пробелы
+    processed_st = "".join(cleaned_chars).strip()
+    if not processed_st:
+        return ""
+    # Шаг 2: Заглавная первая буква и убеждаемся, что остальное в нижнем регистре
+    # Находим индекс первого алфавитного символа для капитализации
+    first_alpha_index = -1
+    for i, char in enumerate(processed_st):
+        if 'a' <= char <= 'z': # Ищем первую букву в нижнем регистре
+            first_alpha_index = i
+            break
+    if first_alpha_index != -1:
+        # Делаем первую букву заглавной, остальные оставляем как есть
+        # (включая знаки препинания, которые уже там)
+        final_result = (processed_st[:first_alpha_index] + 
+                        processed_st[first_alpha_index].upper() + 
+                        processed_st[first_alpha_index+1:])
+    else:
+        # Если алфавитных символов нет (только пробелы/пунктуация), возвращаем как есть
+        final_result = processed_st
+    return final_result
+
+
+
+
+def number_to_string(num):
+    return str(num)
+
+
+
+
+def reverse(st):
+    # Your Code Here
+    words = st.strip().split()       # Удаляем пробелы и разбиваем на слова
+    return ' '.join(reversed(words))   # Переворачиваем и собираем обратно
+    return st
+
+def reverse_list(l):
+    'return a list with the reverse order of l'
+    return l[::-1]
+
+
+
+def solution(number):
+    if number < 0:
+        return 0
+    total = 0
+    for i in range(number):
+        if i % 3 == 0 or i % 5 == 0:
+            total += i
+    return total
+
+
+
+def zero_fuel(distance_to_pump, mpg, fuel_left):
+    #Happy Coding! ;)
+    return mpg * fuel_left >= distance_to_pump
+
+
+
+def are_you_playing_banjo(name):
+    if name[0].lower() == 'r':
+        return name + " plays banjo"
+    else:
+        return name + " does not play banjo"
+
+
+   
+def bool_to_word(boolean):
+     return "Yes" if boolean else "No"
+
+
+
+def count_sheeps(sheep):
+   return sum(1 for s in sheep if s is True)
+
+
+
+def correct_tail(body, tail):
+    return body[-1] == tail
