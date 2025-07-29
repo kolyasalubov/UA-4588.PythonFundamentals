@@ -152,7 +152,10 @@ print(are_you_playing_banjo("rolf"))
 
 
 # _____________________Convert boolean values to strings 'Yes' or 'No'. _____________________
-def bool_to_word(boolean):
+def bool_to_word(boolean:bool) -> str:
+    '''
+    Function convert bool to string
+    '''
     return 'Yes' if boolean else 'No'
 
 # ----------------------------------- Tests -------------------------------------------------
