@@ -98,3 +98,26 @@ print(reverse_list([1,2,3,4]))
 print(reverse_list([3,1,5,4]))
 print(reverse_list([3,6,9,2]))
 print(reverse_list([1]))
+
+
+# ________________________________ Multiples of 3 or 5 __________________________________
+
+def solution(number):
+    '''
+    Function which multiples all the natural numbers below input number
+    '''
+    return sum([num for num in range(1, number)
+                if num % 3 == 0 or num % 5 == 0]) if number > 0 else 0
+
+#------------------------------- Tests -------------------------------------------------
+print(solution(4))
+print(solution(6))
+print(solution(16))
+print(solution(3))
+print(solution(5))
+print(solution(15))
+print(solution(0))
+print(solution(-1))
+print(solution(10))
+print(solution(20))
+print(solution(200))
