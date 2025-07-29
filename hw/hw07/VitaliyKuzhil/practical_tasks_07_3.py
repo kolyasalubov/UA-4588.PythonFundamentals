@@ -161,3 +161,19 @@ def bool_to_word(boolean:bool) -> str:
 # ----------------------------------- Tests -------------------------------------------------
 print(bool_to_word(True))
 print(bool_to_word(False))
+
+
+# ______________________________________ Counting sheep... ____________________________________
+def count_sheeps(sheep:list) -> int:
+    '''
+    Function count positive values
+    '''
+    return sheep.count(True)
+
+# ------------------------------------- Tests -------------------------------------------------
+print(count_sheeps([True,  True,  True,  False,
+                    True,  True,  True,  True ,
+                    True,  False, True,  False,
+                    True,  False, False, True ,
+                    True,  True,  True,  True ,
+                    False, False, True,  True]))
