@@ -149,3 +149,12 @@ print(are_you_playing_banjo("martin"))
 print(are_you_playing_banjo("Rikke"))
 print(are_you_playing_banjo("bravo"))
 print(are_you_playing_banjo("rolf"))
+
+
+# _____________________Convert boolean values to strings 'Yes' or 'No'. _____________________
+def bool_to_word(boolean):
+    return 'Yes' if boolean else 'No'
+
+# ----------------------------------- Tests -------------------------------------------------
+print(bool_to_word(True))
+print(bool_to_word(False))
