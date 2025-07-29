@@ -139,6 +139,9 @@ print(zero_fuel(100, 50, 1))
 # ___________________________________ Are You Playing Banjo? ______________________________
 
 def are_you_playing_banjo(name: str) -> str:
+    '''
+    Function which decide if you can playing a banjo
+    '''
     return name + ' plays banjo' if name.capitalize().startswith('R') else name + ' does not play banjo'
 
 # ----------------------------------- Tests -------------------------------------------------
