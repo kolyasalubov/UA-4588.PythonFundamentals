@@ -58,3 +58,28 @@ print(number_to_string(-79585))
 print(number_to_string(1+2))
 print(number_to_string(1-2))
 print(number_to_string(0))
+
+
+
+# __________________________ Reversing Words in a String ______________________________
+
+def reverse(st:str) -> str:
+    '''
+    Function which reversing Words in a String
+    '''
+    return ' '.join(reversed(st.split()))
+# --------------------------------------------------------------------------------------
+
+# def reverse(st:str) -> str:
+#     '''
+#     Function which reversing Words in a String
+#     '''
+#     index_ = st.index(' ')
+#     return st[index_ + 1:] + ' ' + st[:index_]
+# --------------------------------------------------------------------------------------
+
+# reverse = lambda st: ' '.join(st.split()[::-1])
+
+#------------------------------- Tests -------------------------------------------------
+print(reverse('Hello World'))
+print(reverse('Hi There.'))
