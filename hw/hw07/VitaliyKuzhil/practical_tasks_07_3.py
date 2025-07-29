@@ -177,3 +177,31 @@ print(count_sheeps([True,  True,  True,  False,
                     True,  False, False, True ,
                     True,  True,  True,  True ,
                     False, False, True,  True]))
+
+
+# ________________________________________ Is this my tail? ____________________________________
+def correct_tail(body:str, tail:str) -> bool:
+    '''
+    Function which compere last char of string with indicated
+    '''
+    return True if body[-1] == tail else False
+# --------------------------------------------------------------------------------------------
+
+# def correct_tail(body:str, tail:str) -> bool:
+#     sub = body[-1]
+#     if sub == tail:
+#         return True
+#     else:
+#         return False
+# --------------------------------------------------------------------------------------------
+
+# def correct_tail(body:str, tail:str) -> bool:
+#     return True if body.endswith(tail) else False
+
+# ------------------------------------- Tests -------------------------------------------------
+print(correct_tail("Fox", "x"))
+print(correct_tail("Rhino", "o"))
+print(correct_tail("Meerkat", "t"))
+print(correct_tail("Emu", "t"))
+print(correct_tail("Badger", "s"))
+print(correct_tail("Giraffe", "d"))
