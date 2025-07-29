@@ -134,3 +134,15 @@ def zero_fuel(distance_to_pump:int, mpg:int, fuel_left:int) -> bool:
 # ------------------------------- Tests -------------------------------------------------
 print(zero_fuel(50, 25, 2))
 print(zero_fuel(100, 50, 1))
+
+
+# ___________________________________ Are You Playing Banjo? ______________________________
+
+def are_you_playing_banjo(name: str) -> str:
+    return name + ' plays banjo' if name.capitalize().startswith('R') else name + ' does not play banjo'
+
+# ----------------------------------- Tests -------------------------------------------------
+print(are_you_playing_banjo("martin"))
+print(are_you_playing_banjo("Rikke"))
+print(are_you_playing_banjo("bravo"))
+print(are_you_playing_banjo("rolf"))
