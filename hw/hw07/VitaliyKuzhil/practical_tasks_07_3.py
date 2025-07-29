@@ -44,3 +44,17 @@ print(filter_words('HELLO world!'))
 print(filter_words('This    will    not    pass '))
 print(filter_words('NOW THIS is a VERY EXCITING test!'))
 print(filter_words('Extra       white     space     should     also     be     changed   '))
+
+
+# ______________________________ Convert a Number to a String! _____________________
+
+def number_to_string(num):
+    return str(num)
+
+#------------------------------- Tests --------------------------------------------
+print(number_to_string(67))
+print(number_to_string(79585))
+print(number_to_string(-79585))
+print(number_to_string(1+2))
+print(number_to_string(1-2))
+print(number_to_string(0))
