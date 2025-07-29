@@ -26,3 +26,18 @@ def distance(x1, y1, x2, y2):
 
 #------------------------------- Tests --------------------------------------------
 print(distance(1, 1, 0, 0))
+
+
+# ____________________________ No yelling! __________________________________________
+
+def filter_words(st:str) -> str:
+    '''
+    Function which correcting sentence
+    '''
+    return ' '.join([word.lower() for word in st.split() if word != ' ']).capitalize()
+
+#------------------------------- Tests --------------------------------------------
+print(filter_words('HELLO world!'))
+print(filter_words('This    will    not    pass '))
+print(filter_words('NOW THIS is a VERY EXCITING test!'))
+print(filter_words('Extra       white     space     should     also     be     changed   '))
