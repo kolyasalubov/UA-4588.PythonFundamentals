@@ -83,3 +83,18 @@ def reverse(st:str) -> str:
 #------------------------------- Tests -------------------------------------------------
 print(reverse('Hello World'))
 print(reverse('Hi There.'))
+
+
+# _____________________________ Reverse List Order _____________________________________
+
+def reverse_list(l:list) -> list:
+    '''
+    Function which reversing list
+    '''
+    return l[::-1]
+
+#------------------------------- Tests -------------------------------------------------
+print(reverse_list([1,2,3,4]))
+print(reverse_list([3,1,5,4]))
+print(reverse_list([3,6,9,2]))
+print(reverse_list([1]))
