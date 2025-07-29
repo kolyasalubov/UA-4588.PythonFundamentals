@@ -121,3 +121,16 @@ print(solution(-1))
 print(solution(10))
 print(solution(20))
 print(solution(200))
+
+
+#________________________________ Will you make it? ______________________________________
+
+def zero_fuel(distance_to_pump:int, mpg:int, fuel_left:int) -> bool:
+    '''
+    Function which calculate possibility should car arrive to pump
+    '''
+    return True if fuel_left * mpg >= distance_to_pump else False
+
+# ------------------------------- Tests -------------------------------------------------
+print(zero_fuel(50, 25, 2))
+print(zero_fuel(100, 50, 1))
