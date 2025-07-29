@@ -102,7 +102,7 @@ print(reverse_list([1]))
 
 # ________________________________ Multiples of 3 or 5 __________________________________
 
-def solution(number):
+def solution(number:int) -> int:
     '''
     Function which multiples all the natural numbers below input number
     '''
