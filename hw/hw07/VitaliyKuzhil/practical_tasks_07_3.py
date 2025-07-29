@@ -18,7 +18,10 @@ print(greet('Johnny'))
 
 import math
 
-def distance(x1, y1, x2, y2):
+def distance(x1:int, y1:int, x2:int, y2:int) -> float:
+    '''
+    Function which find the distance between two points
+    '''
     return round(math.sqrt(math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2)), 2)
 #----------------------------------------------------------------------------------
 
