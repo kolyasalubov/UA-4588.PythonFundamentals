@@ -46,9 +46,31 @@ while run:
     if keys[pygame.K_DOWN]:
         shift_y = DELTA_STEP
 
+    if (
+        COORD_X[0] + shift_x < 0 or 
+        COORD_Y[0] + shift_x < 0 or 
+        COORD_Z[0] + shift_x < 0 or
+        COORD_X[0] + shift_x > WIDTH_DISPLAY or
+        COORD_Y[0] + shift_x > WIDTH_DISPLAY or
+        COORD_Z[0] + shift_x > WIDTH_DISPLAY
+    ):
+        shift_x = 0
+
+    if (
+        COORD_X[1] + shift_y < 0 or 
+        COORD_Y[1] + shift_y < 0 or 
+        COORD_Z[1] + shift_y < 0 or
+        COORD_X[1] + shift_y > HEIGHT_DISPLAY or
+        COORD_Y[1] + shift_y > HEIGHT_DISPLAY or
+        COORD_Z[1] + shift_y > HEIGHT_DISPLAY
+    ):
+        shift_y = 0
+
     COORD_X = (COORD_X[0] + shift_x, COORD_X[1] + shift_y)
     COORD_Y = (COORD_Y[0] + shift_x, COORD_Y[1] + shift_y)
     COORD_Z = (COORD_Z[0] + shift_x, COORD_Z[1] + shift_y)
+
+
 
     gameDisplay.fill(BLACK_COLOR) 
 
