@@ -34,6 +34,9 @@ while run:
 
     keys = pygame.key.get_pressed()
     
+    # Initialize horizontal and vertical movement for the current frame
+    # in order to utilize them at the block of checking conditions
+    # whether shape move off-screen
     shift_x = 0
     shift_y = 0
 
@@ -46,6 +49,11 @@ while run:
     if keys[pygame.K_DOWN]:
         shift_y = DELTA_STEP
 
+    # Check if applying the horizontal and vertical shift would move 
+    # the triangle off-screen.
+    # If a boundary of the screen would be crossed, 
+    # the horizontal and vertical movement is canceled
+    # by resetting the shift_x or shift_y value to 0.
     if (
         COORD_X[0] + shift_x < 0 or 
         COORD_Y[0] + shift_x < 0 or 
