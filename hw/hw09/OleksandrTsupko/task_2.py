@@ -34,22 +34,21 @@ while run:
 
     keys = pygame.key.get_pressed()
     
+    shift_x = 0
+    shift_y = 0
+
     if keys[pygame.K_LEFT]:
-        COORD_X = (COORD_X[0] - DELTA_STEP, COORD_X[1])
-        COORD_Y = (COORD_Y[0] - DELTA_STEP, COORD_Y[1])
-        COORD_Z = (COORD_Z[0] - DELTA_STEP, COORD_Z[1])
+        shift_x = -DELTA_STEP
     if keys[pygame.K_RIGHT]:
-        COORD_X = (COORD_X[0] + DELTA_STEP, COORD_X[1])
-        COORD_Y = (COORD_Y[0] + DELTA_STEP, COORD_Y[1])
-        COORD_Z = (COORD_Z[0] + DELTA_STEP, COORD_Z[1])
+        shift_x = DELTA_STEP
     if keys[pygame.K_UP]:
-        COORD_X = (COORD_X[0], COORD_X[1] - DELTA_STEP)
-        COORD_Y = (COORD_Y[0], COORD_Y[1] - DELTA_STEP)
-        COORD_Z = (COORD_Z[0], COORD_Z[1] - DELTA_STEP)
+        shift_y = -DELTA_STEP
     if keys[pygame.K_DOWN]:
-        COORD_X = (COORD_X[0], COORD_X[1] + DELTA_STEP)
-        COORD_Y = (COORD_Y[0], COORD_Y[1] + DELTA_STEP)
-        COORD_Z = (COORD_Z[0], COORD_Z[1] + DELTA_STEP)
+        shift_y = DELTA_STEP
+
+    COORD_X = (COORD_X[0] + shift_x, COORD_X[1] + shift_y)
+    COORD_Y = (COORD_Y[0] + shift_x, COORD_Y[1] + shift_y)
+    COORD_Z = (COORD_Z[0] + shift_x, COORD_Z[1] + shift_y)
 
     gameDisplay.fill(BLACK_COLOR) 
 
