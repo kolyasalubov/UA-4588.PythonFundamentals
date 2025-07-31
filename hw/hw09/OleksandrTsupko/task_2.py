@@ -70,8 +70,6 @@ while run:
     COORD_Y = (COORD_Y[0] + shift_x, COORD_Y[1] + shift_y)
     COORD_Z = (COORD_Z[0] + shift_x, COORD_Z[1] + shift_y)
 
-
-
     gameDisplay.fill(BLACK_COLOR) 
 
     pygame.draw.polygon(gameDisplay, RED_COLOR, [COORD_X,COORD_Y,COORD_Z])
