@@ -1,7 +1,6 @@
 import pygame
 
-# визначаємо константу затримки кадрів
-# та інші константи
+
 FPS = 60
 
 WIDTH_DISPLAY=500
@@ -15,10 +14,8 @@ COORD_Y = 200
 WIDTH_RECTANGLE = 40
 HEIGHT_RECTANGLE = 60
 DELTA_STEP = 5
- 
-# ініціалізація та створення об'єктів
+
 pygame.init()
-# pygame.display.set_mode((600, 400))
 
 gameDisplay=pygame.display.set_mode((WIDTH_DISPLAY, HEIGHT_DISPLAY), pygame.RESIZABLE)
 
