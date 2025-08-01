@@ -4,8 +4,8 @@ from pyowm import OWM
 import requests
 
 
-WIDTH = 500
-HEIGHT = 600
+WIDTH = 600
+HEIGHT = 500
 
 def format_response(weather):
     try:
@@ -31,9 +31,6 @@ def get_weather(city):
     format_response(weather)
 
     label['text'] = format_response(weather)
-
-HEIGHT = 500
-WIDTH = 600
 
 root = tk.Tk()
 
