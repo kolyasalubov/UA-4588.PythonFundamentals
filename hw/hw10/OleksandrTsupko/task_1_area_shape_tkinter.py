@@ -55,8 +55,8 @@ class Pentagon(Polygon):
     
 class Circle:
 
-    def __init__(self, arg):
-        self.radius = arg
+    def __init__(self, radius):
+        self.radius = radius
 
     def calculate_circle(self):
         """Calculates the area of a circle."""
@@ -79,27 +79,26 @@ def calculate_area_and_display(shape, *entries):
     """
     try:
         side_values = [float(e.get()) for e in entries if e.winfo_ismapped()]
-        polygon = Polygon(*side_values)
-        circle = Circle(side_values[0])
         result_text = "Calculation not implemented yet"
+        circle = Circle(side_values[0])
+        rectangle = Rectangle(*side_values)
+        triangle = Triangle(*side_values)
+        pentagon = Pentagon(*side_values)
 
         if shape == "circle":
             area = circle.calculate_circle()
             result_text = f"The area of the circle is:\n{area:.2f}"
             print(f"Calculating area for Circle with radius: {side_values[0]}")
         elif shape == "rectangle":
-            area = polygon.calculate_rectangle()
+            area = rectangle.calculate_rectangle()
             result_text = f"The area of the rectangle is:\n{area:.2f}"
             print(f"Calculating area for Rectangle with sides: {side_values[0]}, {side_values[1]}")
         elif shape == "triangle":
-            area = polygon.calculate_triangle()
-            if isinstance(area, str):
-                result_text = area
-            else:
-                result_text = f"The area of the triangle is:\n{area:.2f}"
+            area = triangle.calculate_triangle()
+            result_text = f"The area of the triangle is:\n{area:.2f}"
             print(f"Calculating area for Triangle with sides: {side_values}")
         elif shape == "pentagon":
-            area = polygon.calculate_pentagon()
+            area = pentagon.calculate_pentagon()
             result_text = f"The area of the pentagon is:\n{area:.2f}"
             print(f"Calculating area for Pentagon with side: {side_values[0]}")
         
