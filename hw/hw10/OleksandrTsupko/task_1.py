@@ -121,22 +121,51 @@ root.title('Area Shape Calculator')
 root.geometry('800x600')
 
 right_frame = tk.Frame(root, bg=BG_COLOUR, bd=2)
-right_frame.place(relx=0.5, rely=0, relwidth=1, relheight=1)
+right_frame.place(relx=0.5, rely=0, relwidth=0.5, relheight=1)
 
-label = tk.Label(right_frame, bg=BG_COLOUR, fg=FONT_COLOUR, font=('Calibri', 18))
-label.place(relx=0, rely=0, relwidth=1, relheight=1)
+side_a_label = tk.Label(right_frame, text="Side A:", bg=BG_COLOUR, font=('Calibri', 20), fg=FONT_COLOUR)
+side_b_label = tk.Label(right_frame, text="Side B:", bg=BG_COLOUR, font=('Calibri', 20), fg=FONT_COLOUR)
+
+new_entry1 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), fg=FONT_COLOUR)
+new_entry2 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
+
+def show_rectangle():
+    label_text_output.config(text="Enter the lengths of \nthe sides of rectangle")
+
+    side_a_label.place(relx=0.2, rely=0.3, relwidth=0.15, relheight=0.08)
+    side_b_label.place(relx=0.2, rely=0.5, relwidth=0.15, relheight=0.08)
+
+    new_entry1.place(relx=0.2, rely=0.4, relwidth=0.6, relheight=0.08)
+    new_entry2.place(relx=0.2, rely=0.6, relwidth=0.6, relheight=0.08)
+
+
+label_text_output = tk.Label(right_frame, 
+                 bg=BG_COLOUR, 
+                 fg=FONT_COLOUR, 
+                 font=('Calibri', 32), 
+                 text='Choose the shape')
+label_text_output.place(relx=0, rely=0.05, relwidth=1, relheight=0.2)
 
 left_frame = tk.Frame(root, bg=BG_COLOUR)
 left_frame.place(relx=0, rely=0, relwidth=0.5, relheight=1)
 
 buttons = [
-    tk.Button(left_frame, text="Circle", font=('Calibri', 28), fg=FONT_COLOUR),
-    tk.Button(left_frame, text="Triangle", font=('Calibri', 28), fg=FONT_COLOUR),
-    tk.Button(left_frame, text="Rectangle", font=('Calibri', 28), fg=FONT_COLOUR),
-    tk.Button(left_frame, text="Pentagon", font=('Calibri', 28), fg=FONT_COLOUR)
+    tk.Button(left_frame, 
+              text="Circle", 
+              font=('Calibri', 28), 
+              fg=FONT_COLOUR,
+              command=lambda: label_text_output.config(text="You selected: Circle")),
+    tk.Button(left_frame, text="Triangle", font=('Calibri', 28), fg=FONT_COLOUR,
+              command=lambda: label_text_output.config(text="You selected: Triangle")),
+    tk.Button(left_frame, text="Rectangle", font=('Calibri', 28), fg=FONT_COLOUR,
+              command=show_rectangle),
+    tk.Button(left_frame, text="Pentagon", font=('Calibri', 28), fg=FONT_COLOUR,
+              command=lambda: label_text_output.config(text="You selected: Pentagon"))
 ]
 
 for btn in buttons:
     btn.pack(fill='both', expand=True, padx=10, pady=10)
+
+root.resizable(False, False)
 
 root.mainloop()
