@@ -1,60 +1,189 @@
-import math
 import tkinter as tk
-
-class Polygon:
-    def __init__(self, *args):
-        self.sides_of_shape = list(args)
-
-    def calculate_circle(self):
-        return math.pi * math.pow(self.sides_of_shape[0], 2)
-
-    def calculate_triangle(self):
-        side1 = self.sides_of_shape[0]
-        side2 = self.sides_of_shape[1]
-        side3 = self.sides_of_shape[2]
-
-        # Check for valid triangle inequality: The sum of the lengths of any two
-        # sides of a triangle must be greater than the length of the third side.
-        if (side1 + side2 <= side3) or (side1 + side3 <= side2) or (side2 + side3 <= side1):
-            print("Error: The given side lengths do not form a valid triangle.")
-            # return 0.0
-        else:
-            # Step 1: Calculate the semi-perimeter (s)
-            s = (side1 + side2 + side3) / 2
-            # Step 2: Apply Heron's formula
-            area = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
-            # return area
-            print(area)
-
-    def calculate_rectangle(self):
-        side1 = self.sides_of_shape[0]
-        side2 = self.sides_of_shape[1]
-        return side1 * side2
-    
-    def calculate_pentagon(self):
-        if sum(self.sides_of_shape) <= 0:
-            return 0.0
-        else:
-            area = ((1/4) * math.sqrt(5 * 
-                    (5 + 2 * math.sqrt(5))) * 
-                    (sum(self.sides_of_shape) ** 2))
-            return area
-
-
-class Rectangle(Polygon):
-    side_a = new_entry1.get()
-
+import math
 
 BG_COLOUR = "#cccccc"
 FONT_COLOUR = "#515151"
 
+# --- Shape Classes for calculations ---
+
+class Polygon:
+    """Base class for geometric shapes."""
+    def __init__(self, *args):
+        self.sides = list(args)
+
+    def calculate_triangle(self):
+        """
+        Calculates the area of a triangle using Heron's formula.
+        Handles invalid triangle inequality.
+        """
+        if len(self.sides) < 3: return 0.0
+        side1, side2, side3 = self.sides[0], self.sides[1], self.sides[2]
+
+        if (side1 + side2 <= side3) or (side1 + side3 <= side2) or (side2 + side3 <= side1):
+            return "Error: Invalid Triangle"
+        else:
+            s = (side1 + side2 + side3) / 2
+            area = math.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+            return area
+
+    def calculate_rectangle(self):
+        """Calculates the area of a rectangle."""
+        if len(self.sides) < 2: return 0.0
+        return self.sides[0] * self.sides[1]
+    
+    def calculate_pentagon(self):
+        """Calculates the area of a regular pentagon."""
+        if not self.sides: return 0.0
+        side = self.sides[0]
+        area = (1/4) * math.sqrt(5 * (5 + 2 * math.sqrt(5))) * (side ** 2)
+        return area
+
+class Triangle(Polygon):
+
+    def perimeter_triangle(self):
+        return sum(self.sides)
+
+class Rectangle(Polygon):
+
+    def perimeter_rectangle(self):
+        return sum(self.sides) * 2
+    
+class Pentagon(Polygon):
+
+    def perimeter_pentagon(self):
+        return sum(self.sides)
+    
+class Circle:
+
+    def __init__(self, arg):
+        self.radius = arg
+
+    def calculate_circle(self):
+        """Calculates the area of a circle."""
+        return math.pi * math.pow(self.radius, 2)
+
+# --- Tkinter functions for UI logic ---
+
+def clear_widgets():
+    """
+    Hides all dynamically placed widgets to prepare for a new shape.
+    """
+    for widget in [radius_label, side_a_label, side_b_label, side_c_label, side_d_label, side_e_label,
+                   new_entry1, new_entry2, new_entry3, new_entry4, new_entry5, button_count_area]:
+        widget.place_forget()
+
+def calculate_area_and_display(shape, *entries):
+    """
+    Calculates the area based on the selected shape and input values,
+    then updates the output label and prints to the console.
+    """
+    try:
+        side_values = [float(e.get()) for e in entries if e.winfo_ismapped()]
+        polygon = Polygon(*side_values)
+        circle = Circle(side_values[0])
+        result_text = "Calculation not implemented yet"
+
+        if shape == "circle":
+            area = circle.calculate_circle()
+            result_text = f"The area of the circle is:\n{area:.2f}"
+            print(f"Calculating area for Circle with radius: {side_values[0]}")
+        elif shape == "rectangle":
+            area = polygon.calculate_rectangle()
+            result_text = f"The area of the rectangle is:\n{area:.2f}"
+            print(f"Calculating area for Rectangle with sides: {side_values[0]}, {side_values[1]}")
+        elif shape == "triangle":
+            area = polygon.calculate_triangle()
+            if isinstance(area, str):
+                result_text = area
+            else:
+                result_text = f"The area of the triangle is:\n{area:.2f}"
+            print(f"Calculating area for Triangle with sides: {side_values}")
+        elif shape == "pentagon":
+            area = polygon.calculate_pentagon()
+            result_text = f"The area of the pentagon is:\n{area:.2f}"
+            print(f"Calculating area for Pentagon with side: {side_values[0]}")
+        
+    except (ValueError, IndexError):
+        result_text = "Please enter valid numbers"
+
+    label_text_output.config(text=result_text)
+
+def show_circle():
+    clear_widgets()
+    label_text_output.config(text="Enter the radius of \nthe circle")
+    radius_label.place(relx=0.2, rely=0.3, relwidth=0.15, relheight=0.08)
+    new_entry1.place(relx=0.4, rely=0.3, relwidth=0.5, relheight=0.08)
+    button_count_area.config(command=lambda: 
+                    calculate_area_and_display("circle", new_entry1))
+    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
+
+def show_triangle():
+    clear_widgets()
+    label_text_output.config(text="Enter the lengths of \nthe sides of triangle")
+
+    side_a_label.place(relx=0.2, rely=0.25, relwidth=0.15, relheight=0.08)
+    side_b_label.place(relx=0.2, rely=0.39, relwidth=0.15, relheight=0.08)
+    side_c_label.place(relx=0.2, rely=0.53, relwidth=0.15, relheight=0.08)
+    new_entry1.place(relx=0.4, rely=0.25, relwidth=0.5, relheight=0.08)
+    new_entry2.place(relx=0.4, rely=0.39, relwidth=0.5, relheight=0.08)
+    new_entry3.place(relx=0.4, rely=0.53, relwidth=0.5, relheight=0.08)
+
+    button_count_area.config(command=lambda: 
+                    calculate_area_and_display("triangle", new_entry1, 
+                                               new_entry2, new_entry3))
+    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
+
+def show_rectangle():
+    clear_widgets()
+    label_text_output.config(text="Enter the lengths of \nthe sides of rectangle")
+
+    side_a_label.place(relx=0.2, rely=0.3, relwidth=0.15, relheight=0.08)
+    side_b_label.place(relx=0.2, rely=0.5, relwidth=0.15, relheight=0.08)
+    new_entry1.place(relx=0.4, rely=0.3, relwidth=0.5, relheight=0.08)
+    new_entry2.place(relx=0.4, rely=0.5, relwidth=0.5, relheight=0.08)
+
+    button_count_area.config(command=lambda: 
+                    calculate_area_and_display("rectangle", new_entry1, new_entry2))
+    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
+
+def show_pentagon():
+    clear_widgets()
+    label_text_output.config(text="Enter the side length of \nthe regular pentagon")
+
+    side_a_label.place(relx=0.2, rely=0.25, relwidth=0.15, relheight=0.08)
+    side_b_label.place(relx=0.2, rely=0.34, relwidth=0.15, relheight=0.08)
+    side_c_label.place(relx=0.2, rely=0.43, relwidth=0.15, relheight=0.08)
+    side_d_label.place(relx=0.2, rely=0.52, relwidth=0.15, relheight=0.08)
+    side_e_label.place(relx=0.2, rely=0.61, relwidth=0.15, relheight=0.08)
+    new_entry1.place(relx=0.4, rely=0.25, relwidth=0.5, relheight=0.08)
+    new_entry2.place(relx=0.4, rely=0.34, relwidth=0.5, relheight=0.08)
+    new_entry3.place(relx=0.4, rely=0.43, relwidth=0.5, relheight=0.08)
+    new_entry4.place(relx=0.4, rely=0.52, relwidth=0.5, relheight=0.08)
+    new_entry5.place(relx=0.4, rely=0.61, relwidth=0.5, relheight=0.08)
+
+    button_count_area.config(command=lambda: 
+                calculate_area_and_display("pentagon", new_entry1, 
+                                           new_entry2, new_entry3, 
+                                           new_entry4, new_entry5))
+    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
+
+
+# --- Main Application Setup ---
 root = tk.Tk()
 root.title('Area Shape Calculator')
 root.geometry('800x600')
+root.resizable(False, False)
 
+# Left frame for buttons
+left_frame = tk.Frame(root, bg=BG_COLOUR)
+left_frame.place(relx=0, rely=0, relwidth=0.5, relheight=1)
+
+# Right frame for output and entry fields
 right_frame = tk.Frame(root, bg=BG_COLOUR, bd=2)
 right_frame.place(relx=0.5, rely=0, relwidth=0.5, relheight=1)
 
+# Labels and Entry fields for input
+# Initially hidden and appears after shape is chosen
 radius_label = tk.Label(right_frame, text="Radius:", bg=BG_COLOUR, 
                         font=('Calibri', 20), fg=FONT_COLOUR)
 side_a_label = tk.Label(right_frame, text="Side A:", bg=BG_COLOUR, 
@@ -68,79 +197,24 @@ side_d_label = tk.Label(right_frame, text="Side D:", bg=BG_COLOUR,
 side_e_label = tk.Label(right_frame, text="Side E:", bg=BG_COLOUR, 
                         font=('Calibri', 20), fg=FONT_COLOUR)
 
-new_entry1 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
-new_entry2 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
-new_entry3 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
-new_entry4 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
-new_entry5 = tk.Entry(right_frame, font=('Calibri', 20), fg=FONT_COLOUR)
+new_entry1 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), 
+                      fg=FONT_COLOUR)
+new_entry2 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), 
+                      fg=FONT_COLOUR)
+new_entry3 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), 
+                      fg=FONT_COLOUR)
+new_entry4 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), 
+                      fg=FONT_COLOUR)
+new_entry5 = tk.Entry(right_frame, bg='white', font=('Calibri', 20), 
+                      fg=FONT_COLOUR)
 
-def calculate_area_and_display(shape, entry1, entry2=None):
-    """
-    Calculates the area based on the selected shape and input values,
-    then updates the output label and prints to the console.
-    """
-    try:
-        if shape == "circle":
-            radius = float(entry1.get())
-            area = math.pi * math.pow(radius, 2)
-            result_text = f"The area of the circle is:\n{area:.2f}"
-            print(f"Calculating area for Circle with radius: {radius}")
-        elif shape == "rectangle":
-            length = float(entry1.get())
-            width = float(entry2.get())
-            area = length * width
-            result_text = f"The area of the rectangle is:\n{area:.2f}"
-            print(f"Calculating area for Rectangle with length: {length}, width: {width}")
-        else:
-            result_text = "Calculation not implemented yet."
-    except ValueError:
-        result_text = "Please enter valid numbers."
-
-    label_text_output.config(text=result_text)
-
-def show_circle():
-    label_text_output.config(text="Enter the radius of \nthe circle")
-    radius_label.place(relx=0.2, rely=0.3, relwidth=0.15, relheight=0.08)
-    new_entry1.place(relx=0.2, rely=0.4, relwidth=0.6, relheight=0.08)
-    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
-    button_count_area.config(command=lambda: calculate_area_and_display(
-                                                "circle", new_entry1, new_entry2))
-
-def show_triangle():
-    label_text_output.config(text="Enter the lengths of \nthe sides of triangle")
-
-    side_a_label.place(relx=0.2, rely=0.23, relwidth=0.15, relheight=0.08)
-    side_b_label.place(relx=0.2, rely=0.38, relwidth=0.15, relheight=0.08)
-    side_c_label.place(relx=0.2, rely=0.53, relwidth=0.15, relheight=0.08)
-
-    new_entry1.place(relx=0.2, rely=0.3, relwidth=0.6, relheight=0.08)
-    new_entry2.place(relx=0.2, rely=0.45, relwidth=0.6, relheight=0.08)
-    new_entry3.place(relx=0.2, rely=0.6, relwidth=0.6, relheight=0.08)
-
-    button_count_area.config(command=lambda: calculate_area_and_display(
-                                            "triangle", new_entry1, new_entry2, new_entry3))
-    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
-
-
-def show_rectangle():
-    label_text_output.config(text="Enter the lengths of \nthe sides of rectangle")
-
-    side_a_label.place(relx=0.2, rely=0.3, relwidth=0.15, relheight=0.08)
-    side_b_label.place(relx=0.2, rely=0.5, relwidth=0.15, relheight=0.08)
-
-    new_entry1.place(relx=0.2, rely=0.4, relwidth=0.6, relheight=0.08)
-    new_entry2.place(relx=0.2, rely=0.6, relwidth=0.6, relheight=0.08)
-
-    button_count_area.config(command=lambda: calculate_area_and_display(
-                                            "rectangle", new_entry1, new_entry2))
-    button_count_area.place(relx=0.2, rely=0.8, relwidth=0.6, relheight=0.08)
-    
-
+# Label to display the selected shape and results
 label_text_output = tk.Label(right_frame, 
                  bg=BG_COLOUR, 
                  fg=FONT_COLOUR, 
                  font=('Calibri', 32), 
-                 text='Choose the shape')
+                 text='Choose the shape',
+                 justify='left')
 label_text_output.place(relx=0, rely=0.05, relwidth=1, relheight=0.2)
 
 button_count_area = tk.Button(right_frame, 
@@ -148,9 +222,7 @@ button_count_area = tk.Button(right_frame,
                               font=('Calibri', 20), 
                               fg=FONT_COLOUR)
 
-left_frame = tk.Frame(root, bg=BG_COLOUR)
-left_frame.place(relx=0, rely=0, relwidth=0.5, relheight=1)
-
+# --- Buttons for shape selection ---
 buttons = [
     tk.Button(left_frame, 
               text="Circle", 
@@ -171,12 +243,10 @@ buttons = [
               text="Pentagon", 
               font=('Calibri', 28), 
               fg=FONT_COLOUR,
-              command=lambda: label_text_output.config(text="You selected: Pentagon"))
+              command=show_pentagon)
 ]
 
 for btn in buttons:
     btn.pack(fill='both', expand=True, padx=10, pady=10)
-
-root.resizable(False, False)
 
 root.mainloop()
