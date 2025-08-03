@@ -11,3 +11,22 @@ if (6 <= len(password) <= 16 and
 else:
     print("Invalid password")
 
+# Or:
+
+# import re
+
+# password = input("Enter password: ")
+
+# lowercase = re.findall(r"[a-z]", password)
+# uppercase = re.findall(r"[A-Z]", password)
+# digits = re.findall(r"[0-9]", password)
+# special = re.findall(r"[$#@]", password)
+
+# if (6 <= len(password) <= 16 and
+#     lowercase and
+#     uppercase and
+#     digits and
+#     special):
+#     print("Valid password")
+# else:
+#     print("Invalid password")
