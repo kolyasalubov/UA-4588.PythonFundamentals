@@ -11,26 +11,26 @@
 # (to perform the task, you need to import the random module,
 # and from it the randint() function)
 
-import random
+# import random
 
-number = random.randint(1,100)
+# number = random.randint(1,100)
 
-attempts = 0
-while attempts < 10:
-    user_input = input("What is my number?\n")
+# attempts = 0
+# while attempts < 10:
+#     user_input = input("What is my number?\n")
 
-    if not user_input.isdigit():
-        print("Enter a valid number!")
-        continue
+#     if not user_input.isdigit():
+#         print("Enter a valid number!")
+#         continue
 
-    user_number = int(user_input)
+#     user_number = int(user_input)
 
-    if number == user_number:
-        print("You win!")
-        break
-    else:
-        print("Nope! Try again.\n")
-    attempts += 1
+#     if number == user_number:
+#         print("You win!")
+#         break
+#     else:
+#         print("Nope! Try again.\n")
+#     attempts += 1
 
-if attempts == 10:
-    print(f"You Lost. The number was {number}.")
+# if attempts == 10:
+#     print(f"You Lost. The number was {number}.")
