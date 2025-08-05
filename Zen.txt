@@ -21,7 +21,7 @@ Zen of Python!
 19.Namespaces are one honking great idea -- let's do more of those!
 20.bel-o-kan
 21.Explicit is better than implicit.
-22.dykunecivan
+22.Simple is better than complex.
 23.Complex is better than complicated.
 24.Flat is better than nested.
 25.artemdubrov27
