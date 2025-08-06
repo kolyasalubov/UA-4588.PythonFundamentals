@@ -2,17 +2,15 @@ import tkinter as tk
 from pyowm import OWM
 from pyowm.utils.config import get_default_config
 
-# --- API CONFIG ---
+
 API_KEY = 'ef2206ff5da67de63306d0b143e20872'
 
-# Можна змінити мову на українську
 config_dict = get_default_config()
-config_dict['language'] = 'en'  # або 'ua' для української, якщо підтримується
+config_dict['language'] = 'en'  
 
 owm = OWM(API_KEY, config_dict)
 mgr = owm.weather_manager()
 
-# --- GUI ---
 HEIGHT = 350
 WIDTH = 450
 
@@ -36,8 +34,6 @@ def get_weather():
 
     label['text'] = result
 
-
-# --- TKINTER GUI ---
 root = tk.Tk()
 root.title("Weather Application")
 
