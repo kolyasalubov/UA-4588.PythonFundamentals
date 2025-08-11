@@ -205,4 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+<<<<<<< HEAD
 .DS_Store
+=======
+hw/hw09/komiakov/09.3/config.py
+>>>>>>> main
