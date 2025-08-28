@@ -1,0 +1,43 @@
+#task 1
+def largest_number(a, b):
+    a = int(input())
+    b = int(input())
+    if a > b:
+        return a
+    elif b > a:
+        return b
+    
+print(largest_number)
+
+#task 2
+
+def rectangle_area(a, b):
+    return a * b
+
+def triangle_area(base, height):
+    return 0.5 * base * height
+
+def circle_area(radius):
+    return 3.14 * radius ** 2
+
+choice = int(input("Choose what do you want: 1 - area of rectangle; 2 - area of triangle; 3 - area of circle;"))
+if choice == 1:
+    a = int(input("Enter first side of rectangle: "))
+    b = int(input("Enter second side of rectangle:"))
+    print("Area of rectangle: ", rectangle_area(a, b))
+elif choice == 2:
+    base = int(input("Enter base of triangle: "))
+    height = int(input("Enter height of triangle:"))
+    print("Area of triangle: ", triangle_area(base, height))
+elif choice == 3:
+    radius = int(input("Eter your radius: "))
+    print("Area of circle: " , circle_area(radius))
+else:
+    print("Wrong choice :/")
+
+#task 3
+def count_char(string):
+    return len(string)
+
+text = input("Enter your text: ")
+print(f"There is {count_char(text)} symbols in your text")
